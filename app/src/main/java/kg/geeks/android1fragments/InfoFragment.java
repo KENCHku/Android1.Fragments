@@ -55,7 +55,7 @@ public class InfoFragment extends Fragment {
                 tvSchool.append(school);
                 tvWork.append(work);
             }else{
-            System.out.println("errorrrrrrrrrrrrrrrrrrrr");        }
+            System.out.println("error");        }
         }
 
 

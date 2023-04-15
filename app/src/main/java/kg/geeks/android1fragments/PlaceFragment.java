@@ -53,45 +53,34 @@ public class PlaceFragment extends Fragment {
 
                 // navigateToIF();
                 sendUIData();
+
             }
         });
     }
 
     private void sendUIData() {
         Bundle bundle = getArguments();
-        if (bundle != null) {
-            String name = bundle.getString(KEY_NAME);
-            String lastName = bundle.getString(KEY_LAST_NAME);
-            String age = bundle.getString(KEY_AGE);
-            String sex = bundle.getString(KEY_SEX);
 
-            bundle = new Bundle();
-            String school = etSchool.getText().toString(), work = etWork.getText().toString();
-            //test
-            bundle.putString(InfoFragment.KEY_NAME, name);
-            bundle.putString(InfoFragment.KEY_LAST_NAME, lastName);
+        String school = etSchool.getText().toString(), work = etWork.getText().toString();
+        //test
+        bundle.putString(InfoFragment.KEY_SCHOOL, school);
+        bundle.putString(InfoFragment.KEY_WORK, work);
 
-            bundle.putString(InfoFragment.KEY_AGE, age);
-            bundle.putString(InfoFragment.KEY_SEX, sex);
+        InfoFragment fragment = new InfoFragment();
 
-            bundle.putString(InfoFragment.KEY_SCHOOL, school);
-            bundle.putString(InfoFragment.KEY_WORK, work);
+        fragment.setArguments(bundle);
 
-            InfoFragment fragment = new InfoFragment();
-
-            fragment.setArguments(bundle);
-
-            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-            transaction.replace(R.id.fragment_container_view, fragment);
-            transaction.addToBackStack(null);
-            transaction.commit();
-        }
+        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment_container_view, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
+    // }
 
-        private void navigateToIF() {
-            requireActivity().getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.fragment_container_view, new InfoFragment())
-                    .commit();
-        }
+    private void navigateToIF() {
+        requireActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container_view, new InfoFragment())
+                .commit();
+    }
 }

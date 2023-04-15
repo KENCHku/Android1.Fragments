@@ -40,46 +40,40 @@ public class AgeFragment extends Fragment {
 
     private void initUI(View view) {
 
-        etAge=view.findViewById(R.id.et_age);
-        etSex=view.findViewById(R.id.et_sex);
-        buttonAF=view.findViewById(R.id.btn_af);
+        etAge = view.findViewById(R.id.et_age);
+        etSex = view.findViewById(R.id.et_sex);
+        buttonAF = view.findViewById(R.id.btn_af);
     }
 
     public void onClickButtonSend() {
         buttonAF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // navigateToPF();
+                // navigateToPF();
                 sendUIData();
+
             }
         });
     }
 
     private void sendUIData() {
         Bundle bundle = getArguments();
-        if (bundle !=null ) {
-            String name = bundle.getString(KEY_NAME);
-            String lastName = bundle.getString(KEY_LAST_NAME);
 
-            bundle = new Bundle();
-            String age = etAge.getText().toString(), sex = etSex.getText().toString();
-            //test
-            bundle.putString(InfoFragment.KEY_NAME, name);
-            bundle.putString(InfoFragment.KEY_LAST_NAME, lastName);
+        String age = etAge.getText().toString(), sex = etSex.getText().toString();
+        //test
+        bundle.putString(InfoFragment.KEY_AGE, age);
+        bundle.putString(InfoFragment.KEY_SEX, sex);
 
-            bundle.putString(InfoFragment.KEY_AGE, age);
-            bundle.putString(InfoFragment.KEY_SEX, sex);
+        PlaceFragment fragment = new PlaceFragment();
 
-            PlaceFragment fragment = new PlaceFragment();
+        fragment.setArguments(bundle);
 
-            fragment.setArguments(bundle);
-
-            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-            transaction.replace(R.id.fragment_container_view, fragment);
-            transaction.addToBackStack(null);
-            transaction.commit();
-        }
+        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment_container_view, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
+
 
     private void navigateToPF() {
         requireActivity().getSupportFragmentManager()

@@ -37,6 +37,31 @@ public class NameFragment extends Fragment {
 
     }
 
+
+
+    private void initUI(View view) {
+
+        etName = view.findViewById(R.id.et_name);
+        etLastName = view.findViewById(R.id.et_last_name);
+        buttonNF = view.findViewById(R.id.btn_nf);
+    }
+
+    private void onClickButtonSend() {
+        buttonNF.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!etName.getText().toString().isEmpty() && !etLastName.getText().toString().isEmpty()) {
+                    sendUIData();
+                   // navigateToAF();
+                } else {
+                    Toast.makeText(getActivity(), "Fill the fields!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+    }
+
+
     private void sendUIData() {
         Bundle bundle = new Bundle();
         String name = etName.getText().toString(), lastName = etLastName.getText().toString();
@@ -51,28 +76,6 @@ public class NameFragment extends Fragment {
         transaction.replace(R.id.fragment_container_view, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
-    }
-
-    private void initUI(View view) {
-
-        etName = view.findViewById(R.id.et_name);
-        etLastName = view.findViewById(R.id.et_last_name);
-        buttonNF = view.findViewById(R.id.btn_nf);
-    }
-
-    private void onClickButtonSend() {
-        buttonNF.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (!etName.getText().toString().isEmpty() && !etLastName.getText().toString().isEmpty()) {
-                   // navigateToAF();
-                    sendUIData();
-                } else {
-                    Toast.makeText(getActivity(), "Fill the fields!", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
     }
 
     private void navigateToAF() {
