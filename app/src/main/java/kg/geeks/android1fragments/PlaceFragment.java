@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class PlaceFragment extends Fragment {
 
@@ -50,10 +51,12 @@ public class PlaceFragment extends Fragment {
         buttonPF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                // navigateToIF();
-                sendUIData();
-
+                if (!etSchool.getText().toString().isEmpty() && !etWork.getText().toString().isEmpty()) {
+                    sendUIData();
+                    // navigateToAF();
+                } else {
+                    Toast.makeText(getActivity(), "Fill the fields!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
