@@ -58,7 +58,6 @@ public class InfoFragment extends Fragment {
             System.out.println("error");        }
         }
 
-
     private void initUI(View view) {
         tvName=view.findViewById(R.id.tv_name);
         tvLastName=view.findViewById(R.id.tv_last_name);

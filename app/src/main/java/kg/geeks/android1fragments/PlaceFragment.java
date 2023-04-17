@@ -31,7 +31,6 @@ public class PlaceFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_place, container, false);
     }
 
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -78,7 +77,6 @@ public class PlaceFragment extends Fragment {
         transaction.addToBackStack(null);
         transaction.commit();
     }
-    // }
 
     private void navigateToIF() {
         requireActivity().getSupportFragmentManager()

@@ -19,7 +19,6 @@ public class NameFragment extends Fragment {
     public EditText etName, etLastName;
     private Button buttonNF;
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -31,13 +30,10 @@ public class NameFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
         initUI(view);
         onClickButtonSend();
 
     }
-
-
 
     private void initUI(View view) {
 
@@ -58,9 +54,7 @@ public class NameFragment extends Fragment {
                 }
             }
         });
-
     }
-
 
     private void sendUIData() {
         Bundle bundle = new Bundle();

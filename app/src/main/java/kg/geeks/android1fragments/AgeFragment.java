@@ -30,7 +30,6 @@ public class AgeFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_age, container, false);
     }
 
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -78,12 +77,10 @@ public class AgeFragment extends Fragment {
         transaction.commit();
     }
 
-
     private void navigateToPF() {
         requireActivity().getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.fragment_container_view, new PlaceFragment())
                 .commit();
     }
-
 }
